@@ -11,12 +11,17 @@ body {
   background-color: #e7e7e7;
   padding-top: 100px;
 }
+.container {
+  width: min(100% - 30px, 960px);
+  margin-inline: auto;
+}
 
 /* ===== HEADER ===== */
 header {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-bottom: 40px;
 }
 header img {
   height: 36px;
