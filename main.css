@@ -54,3 +54,36 @@ form button {
   font-weight: bold;
   border: none;
 }
+
+/* ===== TABELA ===== */
+table {
+  width: 100%;
+}
+table th {
+  border-bottom: 2px solid #111;
+  padding: 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+table td {
+  text-align: center;
+  font-size: 18px;
+  padding-block: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+table td img {
+  height: 30px;
+}
+.resultado {
+  padding: 8px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #111;
+  border-radius: 5px;
+}
+.aprovado {
+  background-color: #009432;
+}
+.reprovado {
+  background-color: #b00a0a;
+}
