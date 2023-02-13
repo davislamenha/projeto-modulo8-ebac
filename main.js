@@ -1,6 +1,7 @@
 const form = document.getElementById('form-atividade');
 const atividades = [];
 const notas = [];
+const notaMinima = prompt('Digite a nota mínima:');
 
 let linhas = '';
 
@@ -21,7 +22,7 @@ function adicionarLinha() {
     notas.push(+inputNotaAtividade.value);
 
     const imgEmoji =
-      +inputNotaAtividade.value >= 7
+      +inputNotaAtividade.value >= notaMinima
         ? '<img src="./img/aprovado.png" alt="Emoji festejando">'
         : '<img src="./img/reprovado.png" alt="Emoji triste">';
 
@@ -52,7 +53,7 @@ function atualizaMediaFinal() {
   document.getElementById('media-final-valor').innerHTML =
     parseFloat(mediaFinal);
   document.getElementById('media-final-resultado').innerHTML =
-    mediaFinal >= 7
+    mediaFinal >= notaMinima
       ? '<span class="resultado aprovado">Aprovado</span>'
       : '<span class="resultado reprovado">Reprovado</span>';
 }
