@@ -1,4 +1,6 @@
 const form = document.getElementById('form-atividade');
+const atividades = [];
+const notas = [];
 
 let linhas = '';
 
@@ -7,6 +9,7 @@ form.addEventListener('submit', (e) => {
 
   adicionarLinha();
   atualizaTabela();
+  atualizaMediaFinal();
 });
 
 function adicionarLinha() {
@@ -14,7 +17,7 @@ function adicionarLinha() {
   const inputNotaAtividade = document.getElementById('nota-atividade');
 
   atividades.push(inputNomeAtividade.value);
-  notas.push(parseFloat(inputNotaAtividade.value));
+  notas.push(+inputNotaAtividade.value);
 
   const imgEmoji =
     +inputNotaAtividade.value >= 7
@@ -37,4 +40,25 @@ function adicionarLinha() {
 function atualizaTabela() {
   const corpoTabela = document.querySelector('tbody');
   corpoTabela.innerHTML = linhas;
+}
+
+function atualizaMediaFinal() {
+  const mediaFinal = calculaMediaFinal();
+
+  document.getElementById('media-final-valor').innerHTML =
+    parseFloat(mediaFinal);
+  document.getElementById('media-final-resultado').innerHTML =
+    mediaFinal >= 7
+      ? '<span class="resultado aprovado">Aprovado</span>'
+      : '<span class="resultado reprovado">Reprovado</span>';
+}
+
+function calculaMediaFinal() {
+  let somaDasNotas = 0;
+
+  for (let i = 0; i < notas.length; i++) {
+    somaDasNotas += notas[i];
+  }
+
+  return somaDasNotas / notas.length;
 }
