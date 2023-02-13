@@ -16,25 +16,29 @@ function adicionarLinha() {
   const inputNomeAtividade = document.getElementById('nome-atividade');
   const inputNotaAtividade = document.getElementById('nota-atividade');
 
-  atividades.push(inputNomeAtividade.value);
-  notas.push(+inputNotaAtividade.value);
+  if (!atividades.includes(inputNomeAtividade.value)) {
+    atividades.push(inputNomeAtividade.value);
+    notas.push(+inputNotaAtividade.value);
 
-  const imgEmoji =
-    +inputNotaAtividade.value >= 7
-      ? '<img src="./img/aprovado.png" alt="Emoji festejando">'
-      : '<img src="./img/reprovado.png" alt="Emoji triste">';
+    const imgEmoji =
+      +inputNotaAtividade.value >= 7
+        ? '<img src="./img/aprovado.png" alt="Emoji festejando">'
+        : '<img src="./img/reprovado.png" alt="Emoji triste">';
 
-  let linha = `
-  <tr>
-      <td>${inputNomeAtividade.value}</td>
-      <td>${inputNotaAtividade.value}</td>
-      <td>${imgEmoji}</td>
-  </tr>`;
+    let linha = `
+    <tr>
+        <td>${inputNomeAtividade.value}</td>
+        <td>${inputNotaAtividade.value}</td>
+        <td>${imgEmoji}</td>
+    </tr>`;
 
-  linhas += linha;
+    linhas += linha;
 
-  inputNomeAtividade.value = '';
-  inputNotaAtividade.value = '';
+    inputNomeAtividade.value = '';
+    inputNotaAtividade.value = '';
+  } else {
+    alert('A atividade já foi inserida!');
+  }
 }
 
 function atualizaTabela() {
